@@ -1,0 +1,11 @@
+D:\prj\files\NewLibrary\src\main\java\library\controller\BooksController.java
+D:\prj\files\NewLibrary\src\main\java\library\controller\MainController.java
+D:\prj\files\NewLibrary\src\main\java\library\entity\BookObject.java
+D:\prj\files\NewLibrary\src\main\java\library\dao\AuthorDao.java
+D:\prj\files\NewLibrary\src\main\java\library\validator\Validator.java
+D:\prj\files\NewLibrary\src\main\java\library\service\BookService.java
+D:\prj\files\NewLibrary\src\main\java\library\dao\BookDao.java
+D:\prj\files\NewLibrary\src\main\java\library\controller\AuthorController.java
+D:\prj\files\NewLibrary\src\main\java\library\entity\AuthorObject.java
+D:\prj\files\NewLibrary\src\main\java\library\dao\DAO.java
+D:\prj\files\NewLibrary\src\main\java\library\service\AuthorService.java
