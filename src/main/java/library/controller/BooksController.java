@@ -42,11 +42,11 @@ public class BooksController {
         Integer publishDay = Integer.parseInt(request.getParameter("publishDate"));
         String style = request.getParameter("style");
         try {
-            bookService.updateBook(id, name,style, publishDay);
+            bookService.updateBook(id, name, style, publishDay);
         } catch (Exception e) {
             e.printStackTrace();
         }
         bookParameterSet.addAttribute("book", bookService.getBookParameters(id));
-        return "BookParameters";
+        return "redirect:/BookParameters/" + id;
     }
 }

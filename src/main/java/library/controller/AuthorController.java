@@ -64,7 +64,7 @@ public class AuthorController {
             e.printStackTrace();
         }
         authorParameterGet.addAttribute("author", authorService.getAuthorParameters(id));
-        return "AuthorParameters";
+        return "redirect:/AuthorParameters/" + id;
     }
 
 

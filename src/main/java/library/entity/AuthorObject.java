@@ -1,6 +1,8 @@
 package library.entity;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +13,9 @@ import java.util.Set;
 @Entity
 @Table(name = "AUTHOR")
 public class AuthorObject {
+    private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+
     @Column(name = "id")
     @Id
     @GeneratedValue
@@ -60,6 +65,10 @@ public class AuthorObject {
 
     public Date getBirthday() {
         return birthday;
+    }
+
+    public String formatBirthday() {
+        return df.format(birthday);
     }
 
     public void setBirthday(Date birthday) {

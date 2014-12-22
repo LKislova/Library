@@ -2,7 +2,6 @@
   <artifact type="exploded-war" name="NewLibrary:war exploded">
     <output-path>$PROJECT_DIR$/target/Library</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="NewLibrary/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="NewLibrary" />
@@ -41,6 +40,7 @@
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="NewLibrary/web/Web" />
     </root>
   </artifact>
 </component>

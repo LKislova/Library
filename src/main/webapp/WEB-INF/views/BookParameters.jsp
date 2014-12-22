@@ -18,7 +18,7 @@
 
 <h3 align="center">${success}</h3>
 <% if (request.getAttribute("book") != null) {%>
-<form action="BookParameters/${book.id}" method="post">
+<form action="/BookParameters/${book.id}" method="post">
     <p>Name
         <input type="text" name="name" maxlength="60" required value="${book.name}" size="60">
     </p>
@@ -39,7 +39,7 @@
 <p>
     <%} else {%>
 
-<form action="BookParameters/" method="post">
+<form action="/BookParameters/" method="post">
     <p>Name
         <input type="text" name="name" maxlength="50" required value="" size="60">
     </p>

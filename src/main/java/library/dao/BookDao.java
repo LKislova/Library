@@ -39,15 +39,14 @@ public class BookDao extends DAO {
     }
 
     public BookObject updateBook(BookObject bookObject) throws Exception {
-        Session session = null;
         try {
             begin();
-            getSession().save(bookObject);
+            getSession().update(bookObject);
             commit();
             return bookObject;
         } catch (HibernateException e) {
             rollback();
-            throw new Exception("Could not create author ", e);
+            throw new Exception("Could not update book ", e);
         }
     }
 

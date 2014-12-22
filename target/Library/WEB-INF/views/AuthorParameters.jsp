@@ -23,13 +23,13 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <form action="AuthorParameters/${author.getId()}/" method="post">
+            <form action="/AuthorParameters/${author.getId()}/" method="post">
                 <p>Full Name
                     <input type="text" name="fullname" required maxlength="60" value="${author.getName()}" size="60">
                 </p>
 
                 <p>Birthday
-                    <input type="date" name="birthday" required max="2014-12-01" value="${author.getBirthday()}"
+                    <input type="date" name="birthday" required max="2014-12-01" value="${author.formatBirthday()}"
                            size="20">
 
                 <p> Biography<br>
@@ -75,7 +75,7 @@
 </div>--%>
 <%} else {%>
 
-<form action="AuthorParameters" method="post">
+<form action="/AuthorParameters/" method="post">
   <p>Full Name
       <input type="text" name="fullname" maxlength="60" required value="" size="60">
   </p>

@@ -44,7 +44,7 @@ public class AuthorDao extends DAO {
         Session session = null;
         try {
             begin();
-            getSession().save(authorObject);
+            getSession().update(authorObject);
             commit();
             return authorObject;
         } catch (HibernateException e) {
