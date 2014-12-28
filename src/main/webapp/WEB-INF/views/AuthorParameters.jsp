@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>AuthorParameters</title>
@@ -38,41 +39,39 @@
                     <br>
                     <input type="submit" value="EDIT"></p>
                 <a href="/main">Return to Mane Menu</a>
-            </form>
+
             <p>
+            </form>
         </div>
-<%--      <div class="col-sm-6">
+    <div class="col-sm-6">
           <p align="right"> Book </p>
-          AuthorBooksParameter/1/addbook/
-          <form action="AuthorBooksParameters/${author.getId()}/book/" method="post">
-              <c:forEach var="book" items="${books}">
+              <c:forEach var="book" items="${authorBook}">
                   <tr>
                       <p align="right">
                           <td>
                       <p align="right">
-                          <a href="BookParameters?id=${book.id()}">${book.name()}</a>
+                          <a href="/BookParameters/${book.getId()}/">${book.getName()}</a>
                       </td>
-                      <form action="AuthorParameters/${author.id()}/book/delete" method="post">
+                      <form action="/AuthorParameters/${author.getId()}/book/delete" method="post">
                           <p align="right">
                               <input type="submit" name="deleteBook" value="DELETE">
-                              <input type="hidden" name="idBook" value="${book.id()}">
+                              <input type="hidden" name="idBook" value="${book.getId()}">
                       </form>
                   </tr>
               </c:forEach>
 
-              <form action="AuthorParameters/${author.id()}/book/add/" method="post">
+              <form action="/AuthorParameters/${author.getId()}/book/add/" method="post">
                   <p align="right">
                       <select name="idNotBook">
                           <c:forEach var="notbook" items="${notBooks}">
-                              <option value="${notbook.id()}">${notbook.name()}</option>
+                              <option value="${notbook.getId()}">${notbook.getName()}</option>
                           </c:forEach>
                       </select>
                       <input type="submit" name="addBook" value="ADDBOOK">
               </form>
-          </form>
       </div>
   </div>
-</div>--%>
+</div>
 <%} else {%>
 
 <form action="/AuthorParameters/" method="post">
@@ -85,7 +84,7 @@
 
   <p> Biography<br>
       <textarea name="biography" rows="20" maxlength="3000" required cols="90"></textarea><br>
-      <input type="submit" value="EDIT"></p>
+      <input type="submit" value="Add"></p>
   <a href="/main">Return to Mane Menu</a>
 </form>
 <%}%>

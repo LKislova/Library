@@ -1,6 +1,7 @@
 package library.service;
 
 import library.entity.AuthorObject;
+import library.entity.BookObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +48,15 @@ public class AuthorService {
     public void updateAuthor(Integer id, String name, Date birthday, String biography) throws Exception {
         AuthorObject authorObject = new AuthorObject(id, name, birthday, biography);
         authorDao.updateAuthor(authorObject);
+    }
+
+    public List<BookObject> getNotAuthorBooks(Integer id) {
+        try {
+            return authorDao.listNotAuthorBook(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 

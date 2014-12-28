@@ -49,7 +49,7 @@
 
     <p> Style
         <input type="text" max="50" name="style" required value="" size="60">
-        <input type="submit" name="Edit" value="UPDATE"></p>
+        <input type="submit" name="Edit" value="Add"></p>
     <a href="/main">Return to Mane Menu</a>
 </form>
 <%}%>

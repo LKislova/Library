@@ -2,6 +2,7 @@ package library.service;
 
 import library.dao.AuthorDao;
 
+import library.entity.AuthorObject;
 import library.entity.BookObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,15 +44,32 @@ public class BookService {
     }
 
 
-//    public void createBook(String name, String style, Integer publishDay) throws Exception {
-//        BookObject bookObject = new BookObject(name, style, publishDay);
-//        bookDao.createBook(bookObject);
-//    }
+    public void createBook(String name, String style, Integer publishDay) throws Exception {
+        BookObject bookObject = new BookObject(name, style, publishDay);
+        bookDao.createBook(bookObject);
+    }
 
 
     public void updateBook(Integer id, String name, String style, Integer publishDay) throws Exception {
         BookObject bookObject = new BookObject(id, name, style, publishDay);
         bookDao.updateBook(bookObject);
+    }
+
+    public void deleteAuthorBook(Integer id, Integer idBook) throws Exception {
+        AuthorObject authorObject = authorDao.getAuthorParameters(id);
+        BookObject bookObject = bookDao.getBookParameters(idBook);
+        bookObject.setBooksAuthor(null);
+        bookDao.updateBook(bookObject);
+        authorDao.updateAuthor(authorObject);
+    }
+
+    public void addAuthorBook(Integer id, Integer idBook) throws Exception {
+        AuthorObject authorObject = authorDao.getAuthorParameters(id);
+        BookObject bookObject = bookDao.getBookParameters(idBook);
+        bookObject.setBooksAuthor(authorObject);
+        bookDao.updateBook(bookObject);
+        authorDao.updateAuthor(authorObject);
+
     }
 }
 
