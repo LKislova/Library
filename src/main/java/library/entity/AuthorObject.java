@@ -28,12 +28,10 @@ public class AuthorObject {
     @Column(name = "biography")
     private String biography;
 
-    //    @OneToMany(mappedBy = "author")
-    @OneToMany(targetEntity = BookObject.class)
+
+    @OneToMany(targetEntity = BookObject.class,fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
-//    @JoinTable(name = "book",
-//            joinColumns = @JoinColumn(name = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "author_id"))
+
     private Set<BookObject> booksAuthorList = new HashSet<BookObject>();
 
     public AuthorObject(Integer id, String name, Date birthday, String biography) {

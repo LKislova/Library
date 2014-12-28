@@ -51,16 +51,19 @@ public class BookService {
 
 
     public void updateBook(Integer id, String name, String style, Integer publishDay) throws Exception {
-        BookObject bookObject = new BookObject(id, name, style, publishDay);
+       BookObject bookObject = bookDao.getBookParameters(id);
+        bookObject.setName(name);
+        bookObject.setPublishDate(publishDay);
+        bookObject.setStyle(style);
         bookDao.updateBook(bookObject);
     }
 
     public void deleteAuthorBook(Integer id, Integer idBook) throws Exception {
-        AuthorObject authorObject = authorDao.getAuthorParameters(id);
+
         BookObject bookObject = bookDao.getBookParameters(idBook);
         bookObject.setBooksAuthor(null);
         bookDao.updateBook(bookObject);
-        authorDao.updateAuthor(authorObject);
+
     }
 
     public void addAuthorBook(Integer id, Integer idBook) throws Exception {
@@ -68,7 +71,7 @@ public class BookService {
         BookObject bookObject = bookDao.getBookParameters(idBook);
         bookObject.setBooksAuthor(authorObject);
         bookDao.updateBook(bookObject);
-        authorDao.updateAuthor(authorObject);
+
 
     }
 }

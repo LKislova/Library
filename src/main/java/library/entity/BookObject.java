@@ -22,11 +22,9 @@ public class BookObject {
     @Column(name = "style")
     private String style;
 
-    @ManyToOne(targetEntity = AuthorObject.class)
+    @ManyToOne(targetEntity = AuthorObject.class,fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
-//    @JoinTable(name = "author",
-//            joinColumns = @JoinColumn(name = "author_id"),
-//            inverseJoinColumns = @JoinColumn(name = "id"))
+
     private AuthorObject booksAuthor;
 
     public BookObject() {

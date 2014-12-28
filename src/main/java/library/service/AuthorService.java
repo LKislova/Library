@@ -46,7 +46,10 @@ public class AuthorService {
 
 
     public void updateAuthor(Integer id, String name, Date birthday, String biography) throws Exception {
-        AuthorObject authorObject = new AuthorObject(id, name, birthday, biography);
+        AuthorObject authorObject =authorDao.getAuthorParameters(id);
+        authorObject.setBiography(biography);
+        authorObject.setBirthday(birthday);
+        authorObject.setName(name);
         authorDao.updateAuthor(authorObject);
     }
 
