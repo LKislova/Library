@@ -5,7 +5,7 @@ import library.entity.BookObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import library.dao.AuthorDao;
+import library.dao.AuthorDaoImpl;
 
 import java.sql.Date;
 import java.util.List;
@@ -18,41 +18,41 @@ import java.util.List;
 @Transactional
 public class AuthorService {
     @Autowired
-    private AuthorDao authorDao;
-
+    public AuthorDaoImpl authorDao;
+    @Transactional(readOnly = true)
     public AuthorObject getAuthorParameters(Integer id) {
         try {
-            return authorDao.getAuthorParameters(id);
+            return authorDao.findById(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
+    @Transactional(readOnly = true)
     public List<AuthorObject> getAllAuthor() {
         try {
-            return authorDao.listAuthor();
+            return authorDao.getList();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-
+    @Transactional(readOnly = false)
     public void createAuthor(String name, Date birthday, String biography) throws Exception {
         AuthorObject authorObject = new AuthorObject(name, birthday, biography);
-        authorDao.createAuthor(authorObject);
+        authorDao.create(authorObject);
     }
 
-
+    @Transactional(readOnly = false)
     public void updateAuthor(Integer id, String name, Date birthday, String biography) throws Exception {
-        AuthorObject authorObject =authorDao.getAuthorParameters(id);
+        AuthorObject authorObject =authorDao.findById(id);
         authorObject.setBiography(biography);
         authorObject.setBirthday(birthday);
         authorObject.setName(name);
-        authorDao.updateAuthor(authorObject);
+        authorDao.update(authorObject);
     }
-
+    @Transactional(readOnly = true)
     public List<BookObject> getNotAuthorBooks(Integer id) {
         try {
             return authorDao.listNotAuthorBook(id);

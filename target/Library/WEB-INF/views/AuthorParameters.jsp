@@ -30,7 +30,7 @@
                 </p>
 
                 <p>Birthday
-                    <input type="date" name="birthday" required max="2014-12-01" value="${author.formatBirthday()}"
+                    <input type="date" name="birthday" required max="2014-12-29" value="${author.formatBirthday()}"
                            size="20">
 
                 <p> Biography<br>
@@ -80,7 +80,7 @@
   </p>
 
   <p>Birthday
-      <input type="date" max="2014-12-01" name="birthday" required value="" size="20"></p>
+      <input type="date" max="2014-12-29" name="birthday" required value="" size="20"></p>
 
   <p> Biography<br>
       <textarea name="biography" rows="20" maxlength="3000" required cols="90"></textarea><br>

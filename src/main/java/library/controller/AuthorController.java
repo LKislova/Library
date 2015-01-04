@@ -3,6 +3,8 @@ package library.controller;
 import library.service.BookService;
 import library.validator.LibraryValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,8 @@ import java.util.Calendar;
  * Created by Любовь on 11.12.2014.
  */
 @Controller
+@Configuration
+//@ComponentScan
 public class AuthorController {
     @Autowired
    private AuthorService authorService ;

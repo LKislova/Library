@@ -1,20 +1,16 @@
 package library.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by trainee on 11.12.14.
  */
 @Entity
 @Table(name = "book")
-public class BookObject {
+public class BookObject extends  BaseObject implements Serializable{
     @Column(name = "name")
     private String name;
-
-    @Column(name = "id")
-    @Id
-    @GeneratedValue
-    private Integer id;
 
     @Column(name = "publish_day")
     private Integer publishDate;
@@ -81,13 +77,6 @@ public class BookObject {
         this.booksAuthor = booksAuthor;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }
 
 

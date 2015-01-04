@@ -17507,4 +17507,7 @@
       </prototype>
     </procedure>
   </data-source>
+  <data-source source="LOCAL" name="hibernate.cfg.xml" uuid="2ca9ffdb-5a20-4e20-b6d1-0d8e60eb2e56">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

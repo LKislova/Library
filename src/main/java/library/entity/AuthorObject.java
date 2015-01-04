@@ -2,6 +2,7 @@ package library.entity;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,22 +14,16 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "AUTHOR")
-public class AuthorObject {
+public class AuthorObject extends BaseObject implements Serializable{
     private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
 
-    @Column(name = "id")
-    @Id
-    @GeneratedValue
-    private Integer id;
     @Column(name = "full_name")
     private String name;
     @Column(name = "birthday")
     private Date birthday;
     @Column(name = "biography")
     private String biography;
-
-
     @OneToMany(targetEntity = BookObject.class,fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
 
@@ -82,13 +77,6 @@ public class AuthorObject {
         this.biography = biography;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
 
     public Set<BookObject> getBooksAuthorList() {
